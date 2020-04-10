@@ -4,9 +4,9 @@ set -e
 function saveProfile() {
 	ITEM="${1}"
 	PROFILE_PATH="${2}"
-	PROFILE_CHROME_DIR="${FIREFOX_DIR}/${PROFILE_PATH}/chrome"
+	PROFILE_CHROME_DIR="${THUNDERBIRD_DIR}/${PROFILE_PATH}/chrome"
     PROFILE_USER_CHROME_CSS_FILE="${PROFILE_CHROME_DIR}/userChrome.css"
-    echo "  $((${ITEM}+3)). Install theme at profile path ${FIREFOX_DIR}/${PROFILE_PATH}:"
+    echo "  $((${ITEM}+3)). Install theme at profile path ${THUNDERBIRD_DIR}/${PROFILE_PATH}:"
     echo -n "     - Ensure directory 'chrome' ... "
     mkdir -p "${PROFILE_CHROME_DIR}"
     echo "done"
@@ -15,20 +15,20 @@ function saveProfile() {
     echo "done"
 }
 
-echo "Install ElementaryOS Firefox Theme (https://github.com/Zonnev/elementaryos-firefox-theme)"
+echo "Install ElementaryOS Thunderbird Theme (https://github.com/alfonsojon/elementaryos-thunderbird-theme)"
 echo ""
 
-FIREFOX_DIR="${HOME}/.mozilla/firefox"
-PROFILES_FILE="${FIREFOX_DIR}/profiles.ini"
-USER_CHROME_CSS_URL="https://raw.githubusercontent.com/Zonnev/elementaryos-firefox-theme/master/userChrome.css"
+THUNDERBIRD_DIR="${HOME}/.thunderbird"
+PROFILES_FILE="${THUNDERBIRD_DIR}/profiles.ini"
+USER_CHROME_CSS_URL="https://raw.githubusercontent.com/alfonsojon/elementaryos-thunderbird-theme/master/userChrome.css"
 
-echo -n "  1. Check Firefox installation ... "
-if [ ! -d "${FIREFOX_DIR}" ]; then
-	>&2 echo "failed, please check Firefox installation, unable to find ${FIREFOX_DIR}"
+echo -n "  1. Check Thunderbird installation ... "
+if [ ! -d "${THUNDERBIRD_DIR}" ]; then
+	>&2 echo "failed, please check Thunderbird installation, unable to find ${THUNDERBIRD_DIR}"
 	exit 1
 fi
 if [ ! -f "${PROFILES_FILE}" ]; then
-	>&2 echo "failed, lease check Firefox installation, unable to find profile.ini at ${FIREFOX_DIR}"
+	>&2 echo "failed, lease check Thunderbird installation, unable to find profile.ini at ${THUNDERBIRD_DIR}"
 	exit 1
 fi
 echo " done"
@@ -51,4 +51,4 @@ else
 fi
 
 echo ""
-echo "Done, restart Firefox, please."
+echo "Done, restart Thunderbird, please."
